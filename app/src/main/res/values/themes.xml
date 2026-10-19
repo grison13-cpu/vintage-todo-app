@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="Theme.VintageTodo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:windowBackground">@color/old_paper_bg</item>
-        <item name="android:textColorPrimary">@color/ink_dark</item>
-        <item name="colorPrimary">@color/old_paper_accent</item>
-        <item name="colorSecondary">@color/old_paper_accent</item>
-    </style>
-</resources>
