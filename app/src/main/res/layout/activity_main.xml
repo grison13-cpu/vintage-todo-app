@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://android.com"
+    xmlns:app="http://android.com"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="📜 Дела на сегодня"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/ink_dark"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Поле быстрого добавления задачи -->
+    <EditText
+        android:id="@+id/etTaskInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Новое дело (кликните 🔄 для переноса)"
+        android:textColorHint="@color/ink_faded"
+        android:textColor="@color/ink_dark"
+        android:backgroundTint="@color/old_paper_accent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnToggleForward"
+        android:layout_marginTop="16dp"/>
+
+    <ToggleButton
+        android:id="@+id/btnToggleForward"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:textOn="🔄"
+        android:textOff="➡️"
+        android:checked="true"
+        android:backgroundTint="@color/old_paper_card"
+        app:layout_constraintTop_toTopOf="@id/etTaskInput"
+        app:layout_constraintBottom_toBottomOf="@id/etTaskInput"
+        app:layout_constraintEnd_toStartOf="@id/btnAddTask"/>
+
+    <Button
+        android:id="@+id/btnAddTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Записать"
+        android:textColor="@color/old_paper_card"
+        android:backgroundTint="@color/old_paper_accent"
+        app:layout_constraintTop_toTopOf="@id/etTaskInput"
+        app:layout_constraintBottom_toBottomOf="@id/etTaskInput"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Список текущих задач -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTasks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/etTaskInput"
+        app:layout_bottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
