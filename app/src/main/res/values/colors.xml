@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="old_paper_bg">#F4EBD0</color>
+    <color name="old_paper_card">#FFFDF6</color>
+    <color name="old_paper_accent">#B68D40</color>
+    <color name="ink_dark">#2A2421</color>
+    <color name="ink_faded">#8C857B</color>
+    <color name="white">#FFFFFF</color>
+</resources>
