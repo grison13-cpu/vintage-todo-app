@@ -17,12 +17,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Поле быстрого добавления задачи -->
     <EditText
         android:id="@+id/etTaskInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Новое дело (кликните 🔄 для переноса)"
+        android:hint="Новое дело"
         android:textColorHint="@color/ink_faded"
         android:textColor="@color/ink_dark"
         android:backgroundTint="@color/old_paper_accent"
@@ -54,7 +53,6 @@
         app:layout_constraintBottom_toBottomOf="@id/etTaskInput"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Список текущих задач -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTasks"
         android:layout_width="match_parent"
