@@ -2,8 +2,8 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ "main", "master" ] # Запускать сборку при любом сохранении кода
-  workflow_dispatch: # Позволяет запускать сборку вручную кнопкой в браузере
+    branches: [ "main", "master" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -19,8 +19,9 @@ jobs:
         distribution: 'zulu'
         java-version: '17'
 
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v4
+    # Эта команда сама создаст правильный системный gradlew в корне проекта
+    - name: Generate Gradle Wrapper
+      run: gradle wrapper --gradle-version 8.5
 
     - name: Grant Execute Permission for Gradle Wrapper
       run: chmod +x gradlew
