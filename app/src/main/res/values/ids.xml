@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tvTitle" type="id" />
+    <item name="etTaskInput" type="id" />
+    <item name="btnToggleForward" type="id" />
+    <item name="btnAddTask" type="id" />
+    <item name="rvTasks" type="id" />
+    <item name="cbCompleted" type="id" />
+    <item name="tvTaskTitle" type="id" />
+    <item name="tvForwardIndicator" type="id" />
+</resources>
