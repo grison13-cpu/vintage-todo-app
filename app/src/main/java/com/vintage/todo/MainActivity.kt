@@ -17,14 +17,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layout.activity_main)
+        setContentView(R.layout.activity_main)
 
         db = AppDatabase.getInstance(this)
         
-        val etInput = findViewById<EditText>(id.etTaskInput)
-        val btnToggle = findViewById<ToggleButton>(id.btnToggleForward)
-        val btnAdd = findViewById<Button>(id.btnAddTask)
-        val rv = findViewById<RecyclerView>(id.rvTasks)
+        val etInput = findViewById<EditText>(R.id.etTaskInput)
+        val btnToggle = findViewById<ToggleButton>(R.id.btnToggleForward)
+        val btnAdd = findViewById<Button>(R.id.btnAddTask)
+        val rv = findViewById<RecyclerView>(R.id.rvTasks)
 
         adapter = TaskAdapter(taskList) { updatedTask ->
             db.taskDao().update(updatedTask)
@@ -65,13 +65,13 @@ class TaskAdapter(private val tasks: List<Task>, val onCheckChanged: (Task) -> U
     RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     class TaskViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        val cb = v.findViewById<CheckBox>(id.cbCompleted)
-        val tv = v.findViewById<TextView>(id.tvTaskTitle)
-        val indicator = v.findViewById<TextView>(id.tvForwardIndicator)
+        val cb = v.findViewById<CheckBox>(R.id.cbCompleted)
+        val tv = v.findViewById<TextView>(R.id.tvTaskTitle)
+        val indicator = v.findViewById<TextView>(R.id.tvForwardIndicator)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(layout.item_task, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_task, parent, false)
         return TaskViewHolder(v)
     }
 
