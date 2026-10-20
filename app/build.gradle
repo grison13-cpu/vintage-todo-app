@@ -31,6 +31,14 @@ android {
     }
 }
 
+// Принудительно заставляем Gradle разрешить конфликт версий Google библиотек
+configurations.all {
+    resolutionStrategy {
+        force 'androidx.work:work-runtime:2.8.1'
+        force 'androidx.work:work-runtime-ktx:2.8.1'
+    }
+}
+
 dependencies {
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -42,6 +50,6 @@ dependencies {
     implementation "androidx.room:room-ktx:2.6.1"
     kapt "androidx.room:room-compiler:2.6.1"
 
-    // Менеджер фоновых задач
-    implementation "androidx.work:work-runtime-ktx:2.9.0"
+    // Менеджер фоновых задач (Понизили до стабильной 2.8.1)
+    implementation "androidx.work:work-runtime-ktx:2.8.1"
 }
