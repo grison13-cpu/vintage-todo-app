@@ -19,13 +19,38 @@ jobs:
         distribution: 'zulu'
         java-version: '17'
 
-    # Эта команда сама создаст правильный системный gradlew в корне проекта
     - name: Generate Gradle Wrapper
       run: gradle wrapper --gradle-version 8.5
 
     - name: Grant Execute Permission for Gradle Wrapper
       run: chmod +x gradlew
 
+    # Эта команда автоматически перезапишет Манифест в гарантированно правильном виде
+    - name: Auto-Fix Android Manifest
+      run: |
+        mkdir -p app/src/main
+        cat << 'EOF' > app/src/main/AndroidManifest.xml
+        <?xml version="1.0" encoding="utf-8"?>
+        <manifest xmlns:android="http://android.com">
+            <application
+                android:name=".TodoApplication"
+                android:allowBackup="true"
+                android:label="Винтажный План"
+                android:supportsRtl="true"
+                android:theme="@style/Theme.VintageTodo">
+                <activity
+                    android:name=".MainActivity"
+                    android:exported="true">
+                    <intent-filter>
+                        <action android:name="android.intent.action.MAIN" />
+                        <category android:name="android.intent.category.LAUNCHER" />
+                    </intent-filter>
+                </activity>
+            </application>
+        </manifest>
+        EOF
+
+    # Запуск компиляции приложения
     - name: Build Debug APK
       run: ./gradlew assembleDebug
 
